@@ -1,14 +1,22 @@
-import java.util.Scanner;
+import java.io.*;
+import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String args[]) {
-        Scanner in = new Scanner(System.in);
-        String[] str = in.nextLine().split(" ");
-        int result = 0;
-        for (String s : str) {
-            int num = Integer.parseInt(s);
-            result += num * num;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        
+        int res = 0;
+        
+        while(st.hasMoreTokens()) {
+            int num = Integer.parseInt(st.nextToken());
+            res += num * num;
         }
-        System.out.println(result % 10);
-    }    
+        
+        bw.write(String.valueOf(res % 10));
+        br.close();
+        bw.flush();
+        bw.close();
+    }
 }
